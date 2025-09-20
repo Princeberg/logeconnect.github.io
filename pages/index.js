@@ -1,5 +1,6 @@
 "use client";
-
+import Footer from '@/components/footer';
+import Header from '@/components/header1';
 import { useState } from 'react';
 import Head from 'next/head';
 
@@ -17,7 +18,6 @@ export default function Home() {
     acceptTerms: false
   });
 
-  // Données des propriétés avec types ajoutés
   const properties = [
     {
       id: 1,
@@ -123,32 +123,17 @@ export default function Home() {
   };
 
   return (
+    <>
     <div>
       <Head>
-        <title>Agence Immobilière LogeConnect | Trouvez votre maison de rêve </title>
+        <title>Agence Immobilièrere </title>
         <meta name="description" content="Découvrez nos différentes offres exclusives" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
-      {/* Header */}
-      <header style={styles.header}>
-        <div style={styles.navContainer}>
-          <div style={styles.logo}>Loge Connect</div>
-          <nav style={styles.nav}>
-            <a href="/" style={styles.navLink}>Accueil</a>
-            <a href="#contact" style={styles.navLink}>A propos de nous</a>
-            <button style={styles.sellButton}>Vendre ou Faire Louer</button>
-          </nav>
-        </div>
-        
-        <div style={styles.hero}>
-          <h1 style={styles.heroTitle}>Votre partenaire pour l'immobilier au Congo-Brazzaville</h1>
-          <p style={styles.heroSubtitle}>Découvrez nos différentes offres exclusives</p>
-          <button style={styles.ctaButton}>Explorer nos offres </button>
-        </div>
-      </header>
+      <Header />
 
-      <main style={styles.main}>
+      <main style={styles.main} id='terrains'>
         <div style={styles.sectionTitleContainer}>
           <h2 style={styles.sectionTitle}>Nos propriétés sélectionnées</h2>
           <p style={styles.sectionSubtitle}>Découvrez nos biens immobiliers exclusifs</p>
@@ -185,7 +170,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div style={styles.propertiesGrid}>
+        <div style={styles.propertiesGrid} >
           {filteredProperties.map(property => (
             <div key={property.id} style={styles.propertyCard}>
               <div style={styles.cardImageContainer}>
@@ -312,11 +297,10 @@ export default function Home() {
           </div>
         </div>
       )}
-
-      <footer style={styles.footer}>
-        <p style={styles.footerText}>© 2023 Prestige Immobilier. Tous droits réservés.</p>
-      </footer>
     </div>
+
+    <Footer />
+    </>
   );
 }
 
@@ -327,54 +311,6 @@ const styles = {
     fontFamily: "'Montserrat', sans-serif",
     color: '#333',
     lineHeight: 1.6,
-  },
-  
-  // Header
-  header: {
-    background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url("https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") center/cover no-repeat',
-    color: 'white',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  
-  navContainer: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    padding: '1.5rem 5%',
-    '@media (max-width: 768px)': {
-      flexDirection: 'column',
-      padding: '1rem',
-    },
-  },
-  
-  logo: {
-    fontSize: '1.8rem',
-    fontWeight: '700',
-    color: '#fff',
-  },
-  
-  nav: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '2rem',
-    '@media (max-width: 768px)': {
-      marginTop: '1rem',
-      gap: '1rem',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-    },
-  },
-  
-  navLink: {
-    color: 'white',
-    textDecoration: 'none',
-    fontWeight: '500',
-    transition: 'color 0.3s ease',
-    ':hover': {
-      color: '#f8c100',
-    },
   },
   
   sellButton: {
